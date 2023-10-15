@@ -1,6 +1,5 @@
 #include "TouchDisplayModule.h"
 #include "versions.h"
-#include <ui.h>
 #include "lv_xiao_round_screen.h"
 
 // Give your Module a name
@@ -36,7 +35,6 @@ void TouchDisplayModule::initUi() {
     lv_init();
     lv_xiao_disp_init();
     lv_xiao_touch_init();
-    ui_init();
 }
 
 void TouchDisplayModule::displayTouched() {
