@@ -19,6 +19,8 @@ class TouchDisplayModule : public OpenKNX::Module
         const uint8_t _build = 1;
         void setup(bool configured);
         void loop(bool configured) override;
+
+        void initUi();
         void displayTouched();
         bool isBacklightOn();
 
