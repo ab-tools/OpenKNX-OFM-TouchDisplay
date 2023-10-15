@@ -32,13 +32,11 @@ void TouchDisplayModule::setup(bool configured)
     displayTouched();
 }
 
-void initUi() {
+void TouchDisplayModule::initUi() {
     lv_init();
     lv_xiao_disp_init();
     lv_xiao_touch_init();
     ui_init();
-
-    TouchDisplayModule::displayTouched();
 }
 
 void TouchDisplayModule::displayTouched() {
