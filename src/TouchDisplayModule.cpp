@@ -25,8 +25,8 @@ void TouchDisplayModule::lv_log(const char * buf)
 
 void TouchDisplayModule::setup(bool configured)
 {
-    TouchDisplayModule::displayOn = true;
-    TouchDisplayModule::lastTouched = 0;
+    TouchDisplayModule::_backlightOn = true;
+    TouchDisplayModule::_lastTouched = 0;
 
     lv_log_register_print_cb(lv_log);
     lv_init();
@@ -40,11 +40,15 @@ void TouchDisplayModule::setup(bool configured)
 void TouchDisplayModule::displayTouched() {
     TouchDisplayModule::_lastTouched = millis();
 
-    if (!TouchDisplayModule::_displayOn) {#
+    if (!TouchDisplayModule::_backlightOn) {
         logDebugP("Turn display on.");
-        TouchDisplayModule::_displayOn = true;
+        TouchDisplayModule::_backlightOn = true;
         digitalWrite(XIAO_BL, HIGH);
     }
+}
+
+bool TouchDisplayModule::isBacklightOn() {
+    return _backlightOn;
 }
 
 void TouchDisplayModule::loop(bool configured)
@@ -52,9 +56,9 @@ void TouchDisplayModule::loop(bool configured)
     lv_timer_handler(); // let the GUI do its work 
     // delay(5); // this delay comes from the original LVGL sample, not sure if a good to delay here
 
-    if (TouchDisplayModule::_displayOn && (millis() - TouchDisplayModule::_lastTouched > DISPLAY_SLEEP_DELAY)) {
+    if (TouchDisplayModule::_backlightOn && (millis() - TouchDisplayModule::_lastTouched > DISPLAY_SLEEP_DELAY)) {
         logDebugP("Turn display off.");
-        TouchDisplayModule::_displayOn = false;
+        TouchDisplayModule::_backlightOn = false;
         digitalWrite(XIAO_BL, LOW);
     }
 }

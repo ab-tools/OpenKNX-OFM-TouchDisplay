@@ -1,4 +1,4 @@
-#include <Arduino.h>
+#include "OpenKNX.h"
 #include <lvgl.h>
 
 #ifndef DISPLAY_SLEEP_DELAY
@@ -16,8 +16,12 @@ class TouchDisplayModule : public OpenKNX::Module
         void setup(bool configured);
         void loop(bool configured) override;
         void displayTouched();
+        bool isBacklightOn();
 
     private:
-        inline static bool _displayOn;
-        inline static unsigned long _lastPressed;
+
+        static void lv_log(const char * buf);
+
+        inline static bool _backlightOn;
+        inline static unsigned long _lastTouched;
 };
