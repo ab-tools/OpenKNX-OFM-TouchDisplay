@@ -1,6 +1,10 @@
 #include "OpenKNX.h"
 #include <lvgl.h>
 
+#ifndef MODULE_TouchDisplayModule_Version
+    #define MODULE_TouchDisplayModule_Version "dev"
+#endif
+
 #ifndef DISPLAY_SLEEP_DELAY
     #define DISPLAY_SLEEP_DELAY 10000
 #endif
