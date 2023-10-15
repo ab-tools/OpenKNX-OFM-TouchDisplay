@@ -38,7 +38,7 @@ void initUi() {
     lv_xiao_touch_init();
     ui_init();
 
-    displayTouched();
+    TouchDisplayModule::displayTouched();
 }
 
 void TouchDisplayModule::displayTouched() {
