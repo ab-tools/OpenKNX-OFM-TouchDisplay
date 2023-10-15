@@ -1,0 +1,9 @@
+{
+  "name": "OFM-TouchDisplay",
+  "version": "0.0.1",
+  "dependencies":
+  {
+      "lvgl/lvgl": "^8.3.9",
+      "bodmer/TFT_eSPI": "^2.5.33"
+  }
+}
