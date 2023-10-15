@@ -28,11 +28,11 @@ void TouchDisplayModule::setup(bool configured)
     TouchDisplayModule::_backlightOn = true;
     TouchDisplayModule::_lastTouched = 0;
 
+    lv_log_register_print_cb(lv_log);
     displayTouched();
 }
 
 void initUi() {
-    lv_log_register_print_cb(lv_log);
     lv_init();
     lv_xiao_disp_init();
     lv_xiao_touch_init();
