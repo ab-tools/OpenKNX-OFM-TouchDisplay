@@ -38,6 +38,7 @@ void TouchDisplayModule::initUi() {
 }
 
 void TouchDisplayModule::displayTouched() {
+    logInfoP("Display touched.");
     TouchDisplayModule::_lastTouched = millis();
 
     if (!TouchDisplayModule::_backlightOn) {
