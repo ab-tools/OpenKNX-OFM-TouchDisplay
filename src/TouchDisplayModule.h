@@ -17,8 +17,8 @@ class TouchDisplayModule : public OpenKNX::Module
         const uint8_t _major = 0; // also update library.json
         const uint8_t _minor = 0;
         const uint8_t _build = 1;
-        void setup(bool configured);
-        void loop(bool configured) override;
+        void setup(bool configured) override;
+        void loopUi();
 
         void initUi();
         void displayTouched();

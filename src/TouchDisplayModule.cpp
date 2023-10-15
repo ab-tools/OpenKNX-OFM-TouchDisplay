@@ -53,7 +53,7 @@ bool TouchDisplayModule::isBacklightOn() {
     return _backlightOn;
 }
 
-void TouchDisplayModule::loop(bool configured)
+void TouchDisplayModule::loopUi()
 {
     lv_timer_handler(); // let the GUI do its work 
     // delay(5); // this delay comes from the original LVGL sample, not sure if a good to delay here
