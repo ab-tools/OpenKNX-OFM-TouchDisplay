@@ -9,6 +9,9 @@
     #define DISPLAY_SLEEP_DELAY 10000
 #endif
 
+#define EXT1_PIN 28
+#define EXT2_PIN 29
+
 class TouchDisplayModule : public OpenKNX::Module
 {
     public:
